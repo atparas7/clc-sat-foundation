@@ -214,7 +214,8 @@
     {key:"algebra", label:"Algebra", icon:"🔢"},
     {key:"geometry-trigonometry", label:"Geometry & Trigonometry", icon:"📐"},
     {key:"data-analysis", label:"Data Analysis", icon:"📈"},
-    {key:"advanced-math", label:"Advanced Math", icon:"∑"}
+    {key:"advanced-math", label:"Advanced Math", icon:"∑"},
+    {key:"foundation-course", label:"Foundation Course", icon:"🎓"}
   ];
 
   var MATH_PRACTICE_BANKS = [
@@ -227,23 +228,23 @@
   var MATH_THEORY_DECKS = {};
   var MATH_THEORY_DOMAINS = [
     {key:"algebra", label:"Algebra", icon:"🔢", desc:"Lines · Systems of Linear Equations · Linear Inequalities · Absolute Value · Exponent Rules · Radicals, Rational Exponents & Scientific Notation",
-     links:[{label:"Presentation", href:"theory/algebra-presentation.pdf"},{label:"Theory Companion", href:"theory/algebra-companion.pdf"}]},
+     links:[{label:"Presentation", href:"theory/algebra-presentation.pdf", pages:27},{label:"Theory Companion", href:"theory/algebra-companion.pdf", pages:69}]},
     {key:"data-analysis", label:"Problem-Solving & Data Analysis", icon:"📈", desc:"Ratios & Proportions · Probability · Unit Conversions & Rates · Statistics · Data Displays · Scatterplots · Sampling, Bias & Margin of Error",
-     links:[{label:"Presentation", href:"theory/data-analysis-presentation.pdf"},{label:"Theory Companion", href:"theory/data-analysis-companion.pdf"}]},
+     links:[{label:"Presentation", href:"theory/data-analysis-presentation.pdf", pages:31},{label:"Theory Companion", href:"theory/data-analysis-companion.pdf", pages:93}]},
     {key:"advanced-math", label:"Advanced Math", icon:"∑", desc:"Functions · Composite & Inverse Functions · Transformations · Polynomials & Factoring · Rational Expressions · Quadratics · Radicals · Exponential Functions · Radical & Rational Equations",
-     links:[{label:"Presentation", href:"theory/advanced-math-presentation.pdf"}]},
+     links:[{label:"Presentation", href:"theory/advanced-math-presentation.pdf", pages:47}]},
     {key:"geometry-trigonometry", label:"Geometry & Trigonometry", icon:"📐", desc:"Angles, Parallel Lines & Triangles · Right Triangles & Trigonometry · Radians & the Unit Circle · Circles · Area, Volume & Similar Solids",
-     links:[{label:"Presentation", href:"theory/geometry-trig-presentation.pdf"},{label:"Theory Companion", href:"theory/geometry-trig-companion.pdf"}]}
+     links:[{label:"Presentation", href:"theory/geometry-trig-presentation.pdf", pages:23},{label:"Theory Companion", href:"theory/geometry-trig-companion.pdf", pages:59}]}
   ];
   var MATH_THEORY_RESOURCES = [
-    {label:"DSAT Foundation Course — all 29 skills", icon:"🎓", desc:"The complete course across all four domains — theory, worked problems and Desmos tips.",
-     links:[{label:"Presentation", href:"theory/foundation-course-presentation.pdf"},{label:"Course Companion", href:"theory/foundation-course-companion.pdf"}]}
+    {key:"foundation-course", label:"DSAT Foundation Course — all 29 skills", icon:"🎓", desc:"The complete course across all four domains — theory, worked problems and Desmos tips.",
+     links:[{label:"Presentation", href:"theory/foundation-course-presentation.pdf", pages:126},{label:"Course Companion", href:"theory/foundation-course-companion.pdf", pages:343}]}
   ];
 
   var ENGLISH_THEORY_TOPICS = [
     {key:"conventions", label:"Standard English Conventions", icon:"✔️", href:"theory/english-conventions-theory.pdf", extraHref:"coming-soon.html?f=english-conventions-companion", extraLabel:"Presentation Companion (1 worked Q per skill)"},
     {key:"info-ideas", label:"Information and Ideas", icon:"🔎", href:"coming-soon.html?f=english-information-ideas-theory"},
-    {key:"craft-structure", label:"Craft and Structure", icon:"🏛️", href:"theory/english-craft-structure-theory.pdf"},
+    {key:"craft-structure", label:"Craft and Structure", icon:"🏛️", href:"theory/english-craft-structure-theory.pdf", pages:156},
     {key:"expression", label:"Expression of Ideas", icon:"💬", href:"coming-soon.html?f=english-expression-ideas-theory"},
     {key:"central-ideas", label:"Central Ideas & Details", icon:"🎯", href:"coming-soon.html?f=english-central-ideas-details"},
     {key:"cross-text", label:"Cross-Text Connections", icon:"🔗", href:"coming-soon.html?f=english-cross-text-connections"},
@@ -1059,17 +1060,16 @@ function screenSignin(){
         "</div></div>";
     }
     if(key==="theory"){
-      var html = "<p class=\"eyebrow\" style=\"color:var(--practice);\">"+sc.icon+" Theory — by domain</p>";
-      var card = function(r){
-        var h = "<div class=\"card\" style=\"position:relative;\"><div class=\"subject-strip\" style=\"background:var(--practice);\"></div>"+
-          "<p class=\"eyebrow\" style=\"margin-bottom:6px; color:var(--practice);\">"+r.icon+" "+escapeHtml(r.label)+"</p>"+
-          "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 12px; line-height:1.5;\">"+escapeHtml(r.desc)+"</p><div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
-        r.links.forEach(function(l){ h += "<a class=\"btn ghost\" href=\""+l.href+"\" style=\"text-decoration:none; flex:1; min-width:150px;\">"+escapeHtml(l.label)+" ↗</a>"; });
-        return h + "</div></div>";
-      };
-      MATH_THEORY_DOMAINS.forEach(function(r){ html += card(r); });
-      html += "<p class=\"eyebrow\" style=\"color:var(--practice); margin-top:22px;\">🎓 Full course</p>";
-      MATH_THEORY_RESOURCES.forEach(function(r){ html += card(r); });
+      var html = "<p class=\"eyebrow\" style=\"color:var(--practice);\">"+sc.icon+" Theory — choose a topic</p><div class=\"section-grid\">";
+      MATH_THEORY_TOPICS.forEach(function(topic){
+        var r = mathTheoryFiles(topic.key);
+        html += "<button class=\"tile-col\" onclick=\"openMathTheoryTopic('"+topic.key+"')\">"+
+          "<div class=\"icon\" style=\"background:var(--practice-soft); color:var(--practice);\">"+topic.icon+"</div>"+
+          "<strong>"+escapeHtml(topic.label)+"</strong>"+
+          "<span>"+(r ? r.links.length+" file"+(r.links.length>1?"s":"") : "Coming soon")+"</span>"+
+          "</button>";
+      });
+      html += "</div>";
       return html;
     }
     if(key==="extra"){
@@ -1174,7 +1174,26 @@ function screenSignin(){
     return c;
   }
 
+  function mathTheoryFiles(key){
+    return MATH_THEORY_DOMAINS.concat(MATH_THEORY_RESOURCES).filter(function(x){return x.key===key;})[0];
+  }
   function screenMathTheoryTopic(topic){
+    var r = mathTheoryFiles(topic.key);
+    if(r){
+      var h = "<div class=\"card\" style=\"position:relative;\">"+
+        "<div class=\"subject-strip\" style=\"background:var(--practice);\"></div>"+
+        "<p class=\"eyebrow\" style=\"color:var(--practice);\">"+topic.icon+" "+escapeHtml(r.label)+"</p>"+
+        "<p style=\"font-size:14px; color:var(--muted); margin:0; line-height:1.55;\">"+escapeHtml(r.desc)+"</p>"+
+        "</div><p class=\"eyebrow\" style=\"margin-top:6px;\">Open a file</p>";
+      r.links.forEach(function(l){
+        var isComp = /companion/i.test(l.label);
+        h += "<a class=\"tile\" href=\""+l.href+"\" style=\"text-decoration:none; color:inherit;\">"+
+          "<div class=\"icon\" style=\"background:var(--practice-soft); color:var(--practice);\">"+(isComp?"📘":"🖥️")+"</div>"+
+          "<div class=\"body\"><strong>"+escapeHtml(l.label)+"</strong><span>"+(isComp?"Theory, worked examples, Tip &amp; Trap":"Slides — theory and worked problems")+(l.pages?" · "+l.pages+" pages":"")+" · PDF</span></div>"+
+          "<div class=\"chev\">↗</div></a>";
+      });
+      return h;
+    }
     if(WORKED_TOPICS[topic.key]){
       var wt = WORKED_TOPICS[topic.key];
       var domains = workedDomains(topic.key);
