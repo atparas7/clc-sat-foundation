@@ -225,11 +225,19 @@
   ];
 
   var MATH_THEORY_DECKS = {
-    "algebra": "coming-soon.html?f=algebra-theory",
-    "geometry-trigonometry": "coming-soon.html?f=geometry-trig-theory",
-    "advanced-math": "coming-soon.html?f=advanced-math-theory",
-    "data-analysis": "coming-soon.html?f=data-analysis-theory"
+    "algebra": "theory/math-theory-part1-presentation.pdf",
+    "geometry-trigonometry": "theory/math-theory-part2-presentation.pdf",
+    "advanced-math": "theory/math-theory-part2-presentation.pdf",
+    "data-analysis": "theory/math-theory-part1-presentation.pdf"
   };
+  var MATH_THEORY_RESOURCES = [
+    {label:"DSAT Foundation Course", icon:"🎓", desc:"All 29 skills — Algebra, Problem-Solving & Data Analysis, Advanced Math, Geometry & Trigonometry — theory, worked problems and Desmos tips.",
+     links:[{label:"Presentation", href:"theory/foundation-course-presentation.pdf"},{label:"Course Companion", href:"theory/foundation-course-companion.pdf"}]},
+    {label:"Theory Part 1 — Algebra & Data Analysis", icon:"🔢", desc:"13 skills: Lines, Systems, Inequalities, Absolute Value, Exponents, Radicals, Ratios, Probability, Unit Conversions, Statistics, Data Displays, Scatterplots, Sampling.",
+     links:[{label:"Presentation", href:"theory/math-theory-part1-presentation.pdf"},{label:"Theory Companion", href:"theory/math-theory-part1-companion.pdf"}]},
+    {label:"Theory Part 2 — Advanced Math & Geometry", icon:"📐", desc:"16 skills: Functions, Polynomials, Quadratics, Exponentials, Radical & Rational Equations, Lines & Angles, Right Triangles & Trigonometry, Circles, Area & Volume.",
+     links:[{label:"Presentation", href:"theory/math-theory-part2-presentation.pdf"},{label:"Geometry & Trig Companion", href:"theory/math-theory-part2-geometry-trig-companion.pdf"}]}
+  ];
 
   var ENGLISH_THEORY_TOPICS = [
     {key:"conventions", label:"Standard English Conventions", icon:"✔️", href:"theory/english-conventions-theory.pdf", extraHref:"coming-soon.html?f=english-conventions-companion", extraLabel:"Presentation Companion (1 worked Q per skill)"},
@@ -388,7 +396,7 @@
   ];
 
   var MATH_SUBCATS = [
-    {key:"theory", label:"Theory", icon:"📚", desc:"Full theory guides  — Algebra, Geometry & Trigonometry, Advanced Math, Problem-Solving & Data Analysis."},
+    {key:"theory", label:"Theory", icon:"📚", desc:"Foundation Course, Theory Part 1 & Part 2 — presentations and companions (PDF)."},
     {key:"practice", label:"Practice", icon:"✏️", desc:"Algebra · Problem Solving & Data Analysis · Advanced Math · Geometry & Trigonometry — timed tests by chapter."},
     {key:"extra", label:"Extra Practice", icon:"➕", desc:"Coming soon"},
     {key:"desmos", label:"Desmos", icon:"🧮", desc:"Desmos Made Simple + full guide  to the built-in Desmos graphing calculator."},
@@ -1066,10 +1074,21 @@ function screenSignin(){
         }
       });
       html += "</div>";
+      html += "<p class=\"eyebrow\" style=\"color:var(--practice); margin-top:22px;\">📘 Presentations &amp; companions</p>";
+      MATH_THEORY_RESOURCES.forEach(function(r){
+        html += "<div class=\"card\"><p class=\"eyebrow\" style=\"margin-bottom:6px;\">"+r.icon+" "+escapeHtml(r.label)+"</p>"+
+          "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 12px;\">"+escapeHtml(r.desc)+"</p><div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
+        r.links.forEach(function(l){ html += "<a class=\"btn ghost\" href=\""+l.href+"\" style=\"text-decoration:none; flex:1; min-width:150px;\">"+escapeHtml(l.label)+" ↗</a>"; });
+        html += "</div></div>";
+      });
       return html;
     }
     if(key==="extra"){
-      var html3 = "<p class=\"eyebrow\" style=\"color:var(--practice);\">"+sc.icon+" Extra Practice — choose a topic</p><div class=\"section-grid\">";
+      var html3 = "<div class=\"card\" style=\"position:relative;\"><div class=\"subject-strip\" style=\"background:var(--practice);\"></div>"+
+        "<p class=\"eyebrow\" style=\"color:var(--practice);\">📒 DSAT Foundation Workbook — Student Edition</p>"+
+        "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 12px;\">435 questions — 15 per skill (5 Easy · 5 Medium · 5 Hard) for all 29 skills. Printable, with space to work.</p>"+
+        "<a class=\"btn gold\" href=\"practice/foundation-workbook-student-edition.pdf\" style=\"text-decoration:none;\">Open the Workbook ↗</a></div>"+
+        "<p class=\"eyebrow\" style=\"color:var(--practice);\">"+sc.icon+" Extra Practice — choose a topic</p><div class=\"section-grid\">";
       MATH_EXTRA_TOPICS.forEach(function(topic){
         html3 += "<button class=\"tile-col\" onclick=\"openMathExtraTopic('"+topic.key+"')\">"+
           "<div class=\"icon\" style=\"background:var(--practice-soft); color:var(--practice);\">"+topic.icon+"</div>"+
