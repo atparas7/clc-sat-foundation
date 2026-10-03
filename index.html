@@ -287,11 +287,11 @@
   ];
 
   var MATH_ALGEBRA_CHAPTERS = [
-    {key:"inequalities", label:"Linear Inequalities", icon:"≤", tests:[{label:"In-Class Test", count:0, href:"practice/algebra-inequalities-class.html"},{label:"Homework Test", count:0, href:"practice/algebra-inequalities-homework15.html"},{label:"Homework", count:0, href:"practice/algebra-inequalities-homework30.html"}]},
-    {key:"lineq1var", label:"Linear Equations in One Variable", icon:"🔢", tests:[{label:"In-Class Test", count:0, href:"practice/algebra-lineq1var-class.html"},{label:"Homework Test", count:0, href:"practice/algebra-lineq1var-homework15.html"},{label:"Homework", count:0, href:"practice/algebra-lineq1var-homework30.html"}]},
-    {key:"lineq2var", label:"Linear Equations in Two Variables", icon:"📈", tests:[{label:"In-Class Test", count:0, href:"practice/algebra-lineq2var-class.html"},{label:"Homework Test", count:0, href:"practice/algebra-lineq2var-homework15.html"},{label:"Homework", count:0, href:"practice/algebra-lineq2var-homework30.html"}]},
-    {key:"linfunctions", label:"Linear Functions", icon:"ƒ(x)", tests:[{label:"In-Class Test", count:0, href:"practice/algebra-linfunctions-class.html"},{label:"Homework Test", count:0, href:"practice/algebra-linfunctions-homework15.html"},{label:"Homework", count:0, href:"practice/algebra-linfunctions-homework30.html"}]},
-    {key:"systems", label:"Systems of Equations", icon:"🔀", tests:[{label:"In-Class Test", count:0, href:"practice/algebra-systems-class.html"},{label:"Homework Test", count:0, href:"practice/algebra-systems-homework15.html"},{label:"Homework", count:0, href:"practice/algebra-systems-homework30.html"}]}
+    {key:"inequalities", label:"Linear Inequalities", icon:"≤", tests:[{label:"In-Class Test", count:15, href:"practice/algebra-inequalities-class.html"},{label:"Homework Test", count:15, href:"practice/algebra-inequalities-homework15.html"},{label:"Homework", count:30, href:"practice/algebra-inequalities-homework30.html"}]},
+    {key:"lineq1var", label:"Linear Equations in One Variable", icon:"🔢", tests:[{label:"In-Class Test", count:15, href:"practice/algebra-lineq1var-class.html"},{label:"Homework Test", count:15, href:"practice/algebra-lineq1var-homework15.html"},{label:"Homework", count:30, href:"practice/algebra-lineq1var-homework30.html"}]},
+    {key:"lineq2var", label:"Linear Equations in Two Variables", icon:"📈", tests:[{label:"In-Class Test", count:15, href:"practice/algebra-lineq2var-class.html"},{label:"Homework Test", count:15, href:"practice/algebra-lineq2var-homework15.html"},{label:"Homework", count:30, href:"practice/algebra-lineq2var-homework30.html"}]},
+    {key:"linfunctions", label:"Linear Functions", icon:"ƒ(x)", tests:[{label:"In-Class Test", count:15, href:"practice/algebra-linfunctions-class.html"},{label:"Homework Test", count:15, href:"practice/algebra-linfunctions-homework15.html"},{label:"Homework", count:30, href:"practice/algebra-linfunctions-homework30.html"}]},
+    {key:"systems", label:"Systems of Equations", icon:"🔀", tests:[{label:"In-Class Test", count:15, href:"practice/algebra-systems-class.html"},{label:"Homework Test", count:15, href:"practice/algebra-systems-homework15.html"},{label:"Homework", count:30, href:"practice/algebra-systems-homework30.html"}]}
   ];
 
   var MATH_ALGEBRA_SET2 = {
@@ -367,7 +367,7 @@
   ]);
 
   var MATH_PRACTICE_DOMAINS = [
-    {key:"algebra", label:"Algebra", icon:"🔢", desc:"Coming soon"},
+    {key:"algebra", label:"Algebra", icon:"🔢", desc:"5 chapters · In-Class Test, Homework Test and Homework for each."},
     {key:"psda", label:"Problem Solving & Data Analysis", icon:"📊", desc:"Coming soon"},
     {key:"advanced", label:"Advanced Math", icon:"ƒ(x)", desc:"Coming soon"},
     {key:"geotrig", label:"Geometry & Trigonometry", icon:"📐", desc:"Coming soon"}
@@ -980,7 +980,7 @@ function screenSignin(){
         htmlP += "<div class=\"card\"><p class=\"eyebrow\" style=\"margin-bottom:10px;\">"+ch.icon+" "+escapeHtml(ch.label)+"</p>"+
           "<div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
         ch.tests.forEach(function(t){
-          htmlP += "<a class=\"btn ghost\" href=\""+t.href+"\" style=\"text-decoration:none; flex:1; min-width:130px;\">"+escapeHtml(t.label)+"</a>";
+          htmlP += "<a class=\"btn ghost\" href=\""+t.href+"\" style=\"text-decoration:none; flex:1; min-width:130px;\">"+escapeHtml(t.label)+(t.count?" <span style=\"opacity:.65;\">("+t.count+"q)</span>":"")+"</a>";
         });
         htmlP += "</div>";
         var set2 = MATH_ALGEBRA_SET2[ch.key];
