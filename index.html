@@ -224,19 +224,20 @@
     {key:"data-analysis", label:"Problem-Solving & Data Analysis Trap-Question Bank", icon:"📊", count:0, href:"practice/data-analysis-trap-bank.html"}
   ];
 
-  var MATH_THEORY_DECKS = {
-    "algebra": "theory/math-theory-part1-presentation.pdf",
-    "geometry-trigonometry": "theory/math-theory-part2-presentation.pdf",
-    "advanced-math": "theory/math-theory-part2-presentation.pdf",
-    "data-analysis": "theory/math-theory-part1-presentation.pdf"
-  };
+  var MATH_THEORY_DECKS = {};
+  var MATH_THEORY_DOMAINS = [
+    {key:"algebra", label:"Algebra", icon:"🔢", desc:"Lines · Systems of Linear Equations · Linear Inequalities · Absolute Value · Exponent Rules · Radicals, Rational Exponents & Scientific Notation",
+     links:[{label:"Presentation", href:"theory/algebra-presentation.pdf"},{label:"Theory Companion", href:"theory/algebra-companion.pdf"}]},
+    {key:"data-analysis", label:"Problem-Solving & Data Analysis", icon:"📈", desc:"Ratios & Proportions · Probability · Unit Conversions & Rates · Statistics · Data Displays · Scatterplots · Sampling, Bias & Margin of Error",
+     links:[{label:"Presentation", href:"theory/data-analysis-presentation.pdf"},{label:"Theory Companion", href:"theory/data-analysis-companion.pdf"}]},
+    {key:"advanced-math", label:"Advanced Math", icon:"∑", desc:"Functions · Composite & Inverse Functions · Transformations · Polynomials & Factoring · Rational Expressions · Quadratics · Radicals · Exponential Functions · Radical & Rational Equations",
+     links:[{label:"Presentation", href:"theory/advanced-math-presentation.pdf"}]},
+    {key:"geometry-trigonometry", label:"Geometry & Trigonometry", icon:"📐", desc:"Angles, Parallel Lines & Triangles · Right Triangles & Trigonometry · Radians & the Unit Circle · Circles · Area, Volume & Similar Solids",
+     links:[{label:"Presentation", href:"theory/geometry-trig-presentation.pdf"},{label:"Theory Companion", href:"theory/geometry-trig-companion.pdf"}]}
+  ];
   var MATH_THEORY_RESOURCES = [
-    {label:"DSAT Foundation Course", icon:"🎓", desc:"All 29 skills — Algebra, Problem-Solving & Data Analysis, Advanced Math, Geometry & Trigonometry — theory, worked problems and Desmos tips.",
-     links:[{label:"Presentation", href:"theory/foundation-course-presentation.pdf"},{label:"Course Companion", href:"theory/foundation-course-companion.pdf"}]},
-    {label:"Theory Part 1 — Algebra & Data Analysis", icon:"🔢", desc:"13 skills: Lines, Systems, Inequalities, Absolute Value, Exponents, Radicals, Ratios, Probability, Unit Conversions, Statistics, Data Displays, Scatterplots, Sampling.",
-     links:[{label:"Presentation", href:"theory/math-theory-part1-presentation.pdf"},{label:"Theory Companion", href:"theory/math-theory-part1-companion.pdf"}]},
-    {label:"Theory Part 2 — Advanced Math & Geometry", icon:"📐", desc:"16 skills: Functions, Polynomials, Quadratics, Exponentials, Radical & Rational Equations, Lines & Angles, Right Triangles & Trigonometry, Circles, Area & Volume.",
-     links:[{label:"Presentation", href:"theory/math-theory-part2-presentation.pdf"},{label:"Geometry & Trig Companion", href:"theory/math-theory-part2-geometry-trig-companion.pdf"}]}
+    {label:"DSAT Foundation Course — all 29 skills", icon:"🎓", desc:"The complete course across all four domains — theory, worked problems and Desmos tips.",
+     links:[{label:"Presentation", href:"theory/foundation-course-presentation.pdf"},{label:"Course Companion", href:"theory/foundation-course-companion.pdf"}]}
   ];
 
   var ENGLISH_THEORY_TOPICS = [
@@ -396,7 +397,7 @@
   ];
 
   var MATH_SUBCATS = [
-    {key:"theory", label:"Theory", icon:"📚", desc:"Foundation Course, Theory Part 1 & Part 2 — presentations and companions (PDF)."},
+    {key:"theory", label:"Theory", icon:"📚", desc:"Algebra · Data Analysis · Advanced Math · Geometry & Trigonometry — presentations and theory companions, plus the full Foundation Course (PDF)."},
     {key:"practice", label:"Practice", icon:"✏️", desc:"Algebra · Problem Solving & Data Analysis · Advanced Math · Geometry & Trigonometry — timed tests by chapter."},
     {key:"extra", label:"Extra Practice", icon:"➕", desc:"Coming soon"},
     {key:"desmos", label:"Desmos", icon:"🧮", desc:"Desmos Made Simple + full guide  to the built-in Desmos graphing calculator."},
@@ -1058,29 +1059,17 @@ function screenSignin(){
         "</div></div>";
     }
     if(key==="theory"){
-      var html = "<p class=\"eyebrow\" style=\"color:var(--practice);\">"+sc.icon+" Theory — choose a topic</p><div class=\"section-grid\">";
-      MATH_THEORY_TOPICS.forEach(function(topic){
-        var deckHref = MATH_THEORY_DECKS[topic.key];
-        if(deckHref){
-          html += "<a class=\"tile-col\" href=\""+deckHref+"\" style=\"text-decoration:none; color:inherit;\">"+
-            "<div class=\"icon\" style=\"background:var(--practice-soft); color:var(--practice);\">"+topic.icon+"</div>"+
-            "<strong>"+escapeHtml(topic.label)+"</strong>"+
-            "</a>";
-        } else {
-          html += "<button class=\"tile-col\" onclick=\"openMathTheoryTopic('"+topic.key+"')\">"+
-            "<div class=\"icon\" style=\"background:var(--practice-soft); color:var(--practice);\">"+topic.icon+"</div>"+
-            "<strong>"+escapeHtml(topic.label)+"</strong>"+
-            "</button>";
-        }
-      });
-      html += "</div>";
-      html += "<p class=\"eyebrow\" style=\"color:var(--practice); margin-top:22px;\">📘 Presentations &amp; companions</p>";
-      MATH_THEORY_RESOURCES.forEach(function(r){
-        html += "<div class=\"card\"><p class=\"eyebrow\" style=\"margin-bottom:6px;\">"+r.icon+" "+escapeHtml(r.label)+"</p>"+
-          "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 12px;\">"+escapeHtml(r.desc)+"</p><div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
-        r.links.forEach(function(l){ html += "<a class=\"btn ghost\" href=\""+l.href+"\" style=\"text-decoration:none; flex:1; min-width:150px;\">"+escapeHtml(l.label)+" ↗</a>"; });
-        html += "</div></div>";
-      });
+      var html = "<p class=\"eyebrow\" style=\"color:var(--practice);\">"+sc.icon+" Theory — by domain</p>";
+      var card = function(r){
+        var h = "<div class=\"card\" style=\"position:relative;\"><div class=\"subject-strip\" style=\"background:var(--practice);\"></div>"+
+          "<p class=\"eyebrow\" style=\"margin-bottom:6px; color:var(--practice);\">"+r.icon+" "+escapeHtml(r.label)+"</p>"+
+          "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 12px; line-height:1.5;\">"+escapeHtml(r.desc)+"</p><div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
+        r.links.forEach(function(l){ h += "<a class=\"btn ghost\" href=\""+l.href+"\" style=\"text-decoration:none; flex:1; min-width:150px;\">"+escapeHtml(l.label)+" ↗</a>"; });
+        return h + "</div></div>";
+      };
+      MATH_THEORY_DOMAINS.forEach(function(r){ html += card(r); });
+      html += "<p class=\"eyebrow\" style=\"color:var(--practice); margin-top:22px;\">🎓 Full course</p>";
+      MATH_THEORY_RESOURCES.forEach(function(r){ html += card(r); });
       return html;
     }
     if(key==="extra"){
