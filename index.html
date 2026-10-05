@@ -195,13 +195,13 @@
 (function(){
   "use strict";
 
-  /*READY-START*/var READY = ["desmos-guide.pdf", "desmos-made-simple.pdf", "media/desmos-lesson-1.pdf", "media/desmos-lesson-2.pdf", "practice/algebra-inequalities-class.html", "practice/algebra-inequalities-homework15.html", "practice/algebra-inequalities-homework30.html", "practice/algebra-lineq1var-class.html", "practice/algebra-lineq1var-homework15.html", "practice/algebra-lineq1var-homework30.html", "practice/algebra-lineq2var-class.html", "practice/algebra-lineq2var-homework15.html", "practice/algebra-lineq2var-homework30.html", "practice/algebra-linfunctions-class.html", "practice/algebra-linfunctions-homework15.html", "practice/algebra-linfunctions-homework30.html", "practice/algebra-systems-class.html", "practice/algebra-systems-homework15.html", "practice/algebra-systems-homework30.html", "practice/eng-conv-agreement_test1.html", "practice/eng-conv-agreement_test2.html", "practice/eng-conv-boundaries_test1.html", "practice/eng-conv-boundaries_test2.html", "practice/eng-conv-modifiers_test1.html", "practice/eng-conv-modifiers_test2.html", "practice/eng-conv-wordforms_test1.html", "practice/eng-conv-wordforms_test2.html", "practice/eng-craft-ctx_test1.html", "practice/eng-craft-ctx_test2.html", "practice/eng-craft-tsp_test1.html", "practice/eng-craft-tsp_test2.html", "practice/eng-craft-wic_test1.html", "practice/eng-craft-wic_test2.html", "practice/eng-expr-rs_test1.html", "practice/eng-expr-rs_test2.html", "practice/eng-expr-tr_test1.html", "practice/eng-expr-tr_test2.html", "practice/eng-info-central_ideas_test1.html", "practice/eng-info-central_ideas_test2.html", "practice/eng-info-coe_test1.html", "practice/eng-info-coe_test2.html", "practice/eng-info-inferences_test1.html", "practice/eng-info-inferences_test2.html", "practice/foundation-workbook-student-edition.pdf", "theory/advanced-math-presentation.pdf", "theory/algebra-companion.pdf", "theory/algebra-presentation.pdf", "theory/data-analysis-companion.pdf", "theory/data-analysis-presentation.pdf", "theory/english-conventions-theory.pdf", "theory/english-craft-structure-theory.pdf", "theory/foundation-course-companion.pdf", "theory/foundation-course-presentation.pdf", "theory/geometry-trig-companion.pdf", "theory/geometry-trig-presentation.pdf"];/*READY-END*/
+  /*READY-START*/var READY = ["desmos-guide.pdf", "desmos-made-simple.pdf", "media/desmos-lesson-1.pdf", "media/desmos-lesson-2.pdf", "practice/algebra-inequalities-class.html", "practice/algebra-inequalities-homework15.html", "practice/algebra-inequalities-homework30.html", "practice/algebra-lineq1var-class.html", "practice/algebra-lineq1var-homework15.html", "practice/algebra-lineq1var-homework30.html", "practice/algebra-lineq2var-class.html", "practice/algebra-lineq2var-homework15.html", "practice/algebra-lineq2var-homework30.html", "practice/algebra-linfunctions-class.html", "practice/algebra-linfunctions-homework15.html", "practice/algebra-linfunctions-homework30.html", "practice/algebra-systems-class.html", "practice/algebra-systems-homework15.html", "practice/algebra-systems-homework30.html", "practice/boundaries-clauses_test1.html", "practice/boundaries-clauses_test2.html", "practice/boundaries-colon_test1.html", "practice/boundaries-colon_test2.html", "practice/boundaries-comma_test1.html", "practice/boundaries-comma_test2.html", "practice/boundaries-dash_test1.html", "practice/boundaries-dash_test2.html", "practice/boundaries-fragments_test1.html", "practice/boundaries-fragments_test2.html", "practice/boundaries-full_test_1.html", "practice/boundaries-full_test_2.html", "practice/boundaries-logical_separation_of_ideas_test1.html", "practice/boundaries-logical_separation_of_ideas_test2.html", "practice/boundaries-nouns_and_apostrophes_test1.html", "practice/boundaries-nouns_and_apostrophes_test2.html", "practice/boundaries-period_test1.html", "practice/boundaries-period_test2.html", "practice/boundaries-run-ons_and_comma_splices_test1.html", "practice/boundaries-run-ons_and_comma_splices_test2.html", "practice/boundaries-semicolon_test1.html", "practice/boundaries-semicolon_test2.html", "practice/eng-conv-agreement_test1.html", "practice/eng-conv-agreement_test2.html", "practice/eng-conv-boundaries_test1.html", "practice/eng-conv-boundaries_test2.html", "practice/eng-conv-modifiers_test1.html", "practice/eng-conv-modifiers_test2.html", "practice/eng-conv-wordforms_test1.html", "practice/eng-conv-wordforms_test2.html", "practice/eng-craft-ctx_test1.html", "practice/eng-craft-ctx_test2.html", "practice/eng-craft-tsp_test1.html", "practice/eng-craft-tsp_test2.html", "practice/eng-craft-wic_test1.html", "practice/eng-craft-wic_test2.html", "practice/eng-expr-rs_test1.html", "practice/eng-expr-rs_test2.html", "practice/eng-expr-tr_test1.html", "practice/eng-expr-tr_test2.html", "practice/eng-info-central_ideas_test1.html", "practice/eng-info-central_ideas_test2.html", "practice/eng-info-coe_test1.html", "practice/eng-info-coe_test2.html", "practice/eng-info-inferences_test1.html", "practice/eng-info-inferences_test2.html", "practice/eng-prep-craft-ctx_test1.html", "practice/eng-prep-craft-ctx_test2.html", "practice/eng-prep-craft-tsp_test1.html", "practice/eng-prep-craft-tsp_test2.html", "practice/eng-prep-craft-wic_test1.html", "practice/eng-prep-craft-wic_test2.html", "practice/eng-prep-expr-rs_test1.html", "practice/eng-prep-expr-rs_test2.html", "practice/eng-prep-expr-tr_test1.html", "practice/eng-prep-expr-tr_test2.html", "practice/eng-prep-info-central_ideas_test1.html", "practice/eng-prep-info-central_ideas_test2.html", "practice/eng-prep-info-coe_quant_test1.html", "practice/eng-prep-info-coe_quant_test2.html", "practice/eng-prep-info-coe_textual_test1.html", "practice/eng-prep-info-coe_textual_test2.html", "practice/eng-prep-info-full_test_1.html", "practice/eng-prep-info-full_test_2.html", "practice/eng-prep-info-inferences_test1.html", "practice/eng-prep-info-inferences_test2.html", "practice/eng-prep-info-paradox_test1.html", "practice/eng-prep-info-paradox_test2.html", "practice/foundation-workbook-student-edition.pdf", "practice/grammar-adjectives_and_adverbs_test1.html", "practice/grammar-adjectives_and_adverbs_test2.html", "practice/grammar-full_test_1.html", "practice/grammar-full_test_2.html", "practice/grammar-modifiers_test1.html", "practice/grammar-modifiers_test2.html", "practice/grammar-parallel_structure_test1.html", "practice/grammar-parallel_structure_test2.html", "practice/grammar-parts_of_speech_test1.html", "practice/grammar-parts_of_speech_test2.html", "practice/grammar-pronouns_test1.html", "practice/grammar-pronouns_test2.html", "practice/grammar-subject_verb_agreement_test1.html", "practice/grammar-subject_verb_agreement_test2.html", "practice/grammar-verbs_and_tenses_test1.html", "practice/grammar-verbs_and_tenses_test2.html", "theory/advanced-math-presentation.pdf", "theory/algebra-companion.pdf", "theory/algebra-presentation.pdf", "theory/data-analysis-companion.pdf", "theory/data-analysis-presentation.pdf", "theory/english-conventions-theory.pdf", "theory/english-craft-structure-theory.pdf", "theory/foundation-course-companion.pdf", "theory/foundation-course-presentation.pdf", "theory/geometry-trig-companion.pdf", "theory/geometry-trig-presentation.pdf"];/*READY-END*/
   function isReady(h){ return !!h && (/^https?:/.test(h) || READY.indexOf(h.split("?")[0]) >= 0); }
 
   /* ---------------- CONTENT (empty — ready to fill in) ---------------- */
 
   var SECTIONS = {
-    english: { title:"English", icon:"📖", color:"english", tests:[], blurb:"Theory · 24 practice tests" },
+    english: { title:"English", icon:"📖", color:"english", tests:[], blurb:"Theory · 84 practice tests" },
     math: { title:"Math", icon:"📐", color:"practice", tests:[], blurb:"Theory · Algebra tests · Workbook · Desmos" },
     full: { title:"Full Test", icon:"🎯", color:"full", tests:[{title:"Full Practice Test 1", desc:"Coming soon", href:"full-test-1.html"}], blurb:"Coming soon" }
   };
@@ -277,32 +277,32 @@
   ];
 
   var ENGLISH_GRAMMAR_CHAPTERS = [
-    {"key":"word-forms","label":"Word Forms & Tenses","icon":"⏱️","desc":"Parts of Speech · Adjectives & Adverbs · Verbs & Tenses","tests":[{"label":"Test 1","count":30,"href":"practice/eng-conv-wordforms_test1.html"},{"label":"Test 2","count":30,"href":"practice/eng-conv-wordforms_test2.html"}]},
-    {"key":"agreement","label":"Agreement & Reference","icon":"🤝","desc":"Subject-Verb Agreement · Pronouns · Nouns & Apostrophes","tests":[{"label":"Test 1","count":30,"href":"practice/eng-conv-agreement_test1.html"},{"label":"Test 2","count":30,"href":"practice/eng-conv-agreement_test2.html"}]},
-    {"key":"modifiers-parallel","label":"Modifiers & Parallel Structure","icon":"🔧","desc":"Modifiers · Parallel Structure","tests":[{"label":"Test 1","count":20,"href":"practice/eng-conv-modifiers_test1.html"},{"label":"Test 2","count":20,"href":"practice/eng-conv-modifiers_test2.html"}]},
-    {"key":"full-mixed-tests","label":"Full Mixed Tests","icon":"🧪","tests":[{"label":"Full Test 1 (Mixed)","count":0,"href":"practice/grammar-full_test_1.html"},{"label":"Full Test 2 (Mixed)","count":0,"href":"practice/grammar-full_test_2.html"}]},
-    {"key":"parts-of-speech","label":"Parts of Speech","icon":"🔤","tests":[{"label":"Test 1","count":0,"href":"practice/grammar-parts_of_speech_test1.html"},{"label":"Test 2","count":0,"href":"practice/grammar-parts_of_speech_test2.html"}]},
-    {"key":"verbs-and-tenses","label":"Verbs & Tenses","icon":"⏱️","tests":[{"label":"Test 1","count":0,"href":"practice/grammar-verbs_and_tenses_test1.html"},{"label":"Test 2","count":0,"href":"practice/grammar-verbs_and_tenses_test2.html"}]},
-    {"key":"subject-verb-agreement","label":"Subject-Verb Agreement","icon":"🤝","tests":[{"label":"Test 1","count":0,"href":"practice/grammar-subject_verb_agreement_test1.html"},{"label":"Test 2","count":0,"href":"practice/grammar-subject_verb_agreement_test2.html"}]},
-    {"key":"pronouns","label":"Pronouns","icon":"👤","tests":[{"label":"Test 1","count":0,"href":"practice/grammar-pronouns_test1.html"},{"label":"Test 2","count":0,"href":"practice/grammar-pronouns_test2.html"}]},
-    {"key":"adjectives-and-adverbs","label":"Adjectives & Adverbs","icon":"🎨","tests":[{"label":"Test 1","count":0,"href":"practice/grammar-adjectives_and_adverbs_test1.html"},{"label":"Test 2","count":0,"href":"practice/grammar-adjectives_and_adverbs_test2.html"}]},
-    {"key":"modifiers","label":"Modifiers","icon":"🔧","tests":[{"label":"Test 1","count":0,"href":"practice/grammar-modifiers_test1.html"},{"label":"Test 2","count":0,"href":"practice/grammar-modifiers_test2.html"}]},
-    {"key":"parallel-structure","label":"Parallel Structure","icon":"⚖️","tests":[{"label":"Test 1","count":0,"href":"practice/grammar-parallel_structure_test1.html"},{"label":"Test 2","count":0,"href":"practice/grammar-parallel_structure_test2.html"}]}
+    {"level":"foundation","key":"word-forms","label":"Word Forms & Tenses","icon":"⏱️","desc":"Parts of Speech · Adjectives & Adverbs · Verbs & Tenses","tests":[{"label":"Test 1","count":30,"href":"practice/eng-conv-wordforms_test1.html"},{"label":"Test 2","count":30,"href":"practice/eng-conv-wordforms_test2.html"}]},
+    {"level":"foundation","key":"agreement","label":"Agreement & Reference","icon":"🤝","desc":"Subject-Verb Agreement · Pronouns · Nouns & Apostrophes","tests":[{"label":"Test 1","count":30,"href":"practice/eng-conv-agreement_test1.html"},{"label":"Test 2","count":30,"href":"practice/eng-conv-agreement_test2.html"}]},
+    {"level":"foundation","key":"modifiers-parallel","label":"Modifiers & Parallel Structure","icon":"🔧","desc":"Modifiers · Parallel Structure","tests":[{"label":"Test 1","count":20,"href":"practice/eng-conv-modifiers_test1.html"},{"label":"Test 2","count":20,"href":"practice/eng-conv-modifiers_test2.html"}]},
+    {"level":"prep","key":"full-mixed-tests","label":"Full Mixed Tests","icon":"🧪","tests":[{"label":"Full Test 1","count":20,"href":"practice/grammar-full_test_1.html"},{"label":"Full Test 2","count":20,"href":"practice/grammar-full_test_2.html"}]},
+    {"level":"prep","key":"parts-of-speech","label":"Parts of Speech","icon":"🔤","tests":[{"label":"Test 1","count":10,"href":"practice/grammar-parts_of_speech_test1.html"},{"label":"Test 2","count":10,"href":"practice/grammar-parts_of_speech_test2.html"}]},
+    {"level":"prep","key":"verbs-and-tenses","label":"Verbs & Tenses","icon":"⏱️","tests":[{"label":"Test 1","count":10,"href":"practice/grammar-verbs_and_tenses_test1.html"},{"label":"Test 2","count":10,"href":"practice/grammar-verbs_and_tenses_test2.html"}]},
+    {"level":"prep","key":"subject-verb-agreement","label":"Subject-Verb Agreement","icon":"🤝","tests":[{"label":"Test 1","count":10,"href":"practice/grammar-subject_verb_agreement_test1.html"},{"label":"Test 2","count":10,"href":"practice/grammar-subject_verb_agreement_test2.html"}]},
+    {"level":"prep","key":"pronouns","label":"Pronouns","icon":"👤","tests":[{"label":"Test 1","count":10,"href":"practice/grammar-pronouns_test1.html"},{"label":"Test 2","count":10,"href":"practice/grammar-pronouns_test2.html"}]},
+    {"level":"prep","key":"adjectives-and-adverbs","label":"Adjectives & Adverbs","icon":"🎨","tests":[{"label":"Test 1","count":10,"href":"practice/grammar-adjectives_and_adverbs_test1.html"},{"label":"Test 2","count":10,"href":"practice/grammar-adjectives_and_adverbs_test2.html"}]},
+    {"level":"prep","key":"modifiers","label":"Modifiers","icon":"🔧","tests":[{"label":"Test 1","count":10,"href":"practice/grammar-modifiers_test1.html"},{"label":"Test 2","count":10,"href":"practice/grammar-modifiers_test2.html"}]},
+    {"level":"prep","key":"parallel-structure","label":"Parallel Structure","icon":"⚖️","tests":[{"label":"Test 1","count":10,"href":"practice/grammar-parallel_structure_test1.html"},{"label":"Test 2","count":10,"href":"practice/grammar-parallel_structure_test2.html"}]}
   ];
 
   var ENGLISH_BOUNDARIES_CHAPTERS = [
-    {"key":"boundaries","label":"Boundaries","icon":"✂️","desc":"Comma · Semicolon · Colon · Dash · Run-ons & Comma Splices · Fragments","tests":[{"label":"Test 1","count":20,"href":"practice/eng-conv-boundaries_test1.html"},{"label":"Test 2","count":20,"href":"practice/eng-conv-boundaries_test2.html"}]},
-    {"key":"full-mixed-tests","label":"Full Mixed Tests","icon":"🧪","tests":[{"label":"Full Test 1 (Mixed)","count":0,"href":"practice/boundaries-full_test_1.html"},{"label":"Full Test 2 (Mixed)","count":0,"href":"practice/boundaries-full_test_2.html"}]},
-    {"key":"the-comma","label":"The Comma","icon":",","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-comma_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-comma_test2.html"}]},
-    {"key":"the-semicolon","label":"The Semicolon","icon":";","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-semicolon_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-semicolon_test2.html"}]},
-    {"key":"the-colon","label":"The Colon","icon":":","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-colon_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-colon_test2.html"}]},
-    {"key":"the-dash","label":"The Dash","icon":"—","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-dash_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-dash_test2.html"}]},
-    {"key":"the-period","label":"The Period","icon":".","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-period_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-period_test2.html"}]},
-    {"key":"independent-vs-dependent-clauses","label":"Independent vs. Dependent Clauses","icon":"🔗","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-clauses_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-clauses_test2.html"}]},
-    {"key":"run-ons-and-comma-splices","label":"Run-ons & Comma Splices","icon":"🚫","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-run-ons_and_comma_splices_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-run-ons_and_comma_splices_test2.html"}]},
-    {"key":"fragments","label":"Fragments","icon":"🧩","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-fragments_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-fragments_test2.html"}]},
-    {"key":"logical-separation-of-ideas","label":"Logical Separation of Ideas","icon":"🧠","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-logical_separation_of_ideas_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-logical_separation_of_ideas_test2.html"}]},
-    {"key":"nouns-and-apostrophes","label":"Nouns & Apostrophes","icon":"’","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-nouns_and_apostrophes_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-nouns_and_apostrophes_test2.html"}]}
+    {"level":"foundation","key":"boundaries","label":"Boundaries","icon":"✂️","desc":"Comma · Semicolon · Colon · Dash · Run-ons & Comma Splices · Fragments","tests":[{"label":"Test 1","count":20,"href":"practice/eng-conv-boundaries_test1.html"},{"label":"Test 2","count":20,"href":"practice/eng-conv-boundaries_test2.html"}]},
+    {"level":"prep","key":"full-mixed-tests","label":"Full Mixed Tests","icon":"🧪","tests":[{"label":"Full Test 1","count":20,"href":"practice/boundaries-full_test_1.html"},{"label":"Full Test 2","count":20,"href":"practice/boundaries-full_test_2.html"}]},
+    {"level":"prep","key":"the-comma","label":"The Comma","icon":",","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-comma_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-comma_test2.html"}]},
+    {"level":"prep","key":"the-semicolon","label":"The Semicolon","icon":";","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-semicolon_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-semicolon_test2.html"}]},
+    {"level":"prep","key":"the-colon","label":"The Colon","icon":":","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-colon_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-colon_test2.html"}]},
+    {"level":"prep","key":"the-dash","label":"The Dash","icon":"—","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-dash_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-dash_test2.html"}]},
+    {"level":"prep","key":"the-period","label":"The Period","icon":".","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-period_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-period_test2.html"}]},
+    {"level":"prep","key":"independent-vs-dependent-clauses","label":"Independent vs. Dependent Clauses","icon":"🔗","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-clauses_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-clauses_test2.html"}]},
+    {"level":"prep","key":"run-ons-and-comma-splices","label":"Run-ons & Comma Splices","icon":"🚫","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-run-ons_and_comma_splices_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-run-ons_and_comma_splices_test2.html"}]},
+    {"level":"prep","key":"fragments","label":"Fragments","icon":"🧩","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-fragments_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-fragments_test2.html"}]},
+    {"level":"prep","key":"logical-separation-of-ideas","label":"Logical Separation of Ideas","icon":"🧠","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-logical_separation_of_ideas_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-logical_separation_of_ideas_test2.html"}]},
+    {"level":"prep","key":"nouns-and-apostrophes","label":"Nouns & Apostrophes","icon":"’","tests":[{"label":"Test 1","count":10,"href":"practice/boundaries-nouns_and_apostrophes_test1.html"},{"label":"Test 2","count":10,"href":"practice/boundaries-nouns_and_apostrophes_test2.html"}]}
   ];
 
   var MATH_ALGEBRA_CHAPTERS = [
@@ -417,36 +417,44 @@
 
   var ENGLISH_DOMAIN_CHAPTERS = {
     "craft-structure": [
-    {label:"Words in Context", desc:"Choose the word that fits the meaning in context", icon:"🔤", tests:[{label:"Test 1", count:20, href:"practice/eng-craft-wic_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-craft-wic_test2.html"}]},
-    {label:"Text Structure and Purpose", desc:"What a text or a sentence is doing — function and structure", icon:"🏗️", tests:[{label:"Test 1", count:20, href:"practice/eng-craft-tsp_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-craft-tsp_test2.html"}]},
-    {label:"Cross-Text Connections", desc:"How two texts relate — agree, disagree, respond", icon:"🔗", tests:[{label:"Test 1", count:20, href:"practice/eng-craft-ctx_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-craft-ctx_test2.html"}]}
+    {level:"foundation", label:"Words in Context", desc:"Choose the word that fits the meaning in context", icon:"🔤", tests:[{label:"Test 1", count:20, href:"practice/eng-craft-wic_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-craft-wic_test2.html"}]},
+    {level:"foundation", label:"Text Structure and Purpose", desc:"What a text or a sentence is doing — function and structure", icon:"🏗️", tests:[{label:"Test 1", count:20, href:"practice/eng-craft-tsp_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-craft-tsp_test2.html"}]},
+    {level:"foundation", label:"Cross-Text Connections", desc:"How two texts relate — agree, disagree, respond", icon:"🔗", tests:[{label:"Test 1", count:20, href:"practice/eng-craft-ctx_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-craft-ctx_test2.html"}]},
+    {level:"prep", label:"Words in Context", icon:"🔤", tests:[{label:"Test 1", count:20, href:"practice/eng-prep-craft-wic_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-prep-craft-wic_test2.html"}]},
+    {level:"prep", label:"Text Structure and Purpose", icon:"🏗️", tests:[{label:"Test 1", count:20, href:"practice/eng-prep-craft-tsp_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-prep-craft-tsp_test2.html"}]},
+    {level:"prep", label:"Cross-Text Connections", icon:"🔗", tests:[{label:"Test 1", count:20, href:"practice/eng-prep-craft-ctx_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-prep-craft-ctx_test2.html"}]}
   ],
     "expression": [
-    {label:"Rhetorical Synthesis", desc:"Use a student's notes to meet a specific goal", icon:"📝", tests:[{label:"Test 1", count:20, href:"practice/eng-expr-rs_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-expr-rs_test2.html"}]},
-    {label:"Transitions", desc:"Pick the logical connector between ideas", icon:"➡️", tests:[{label:"Test 1", count:20, href:"practice/eng-expr-tr_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-expr-tr_test2.html"}]}
+    {level:"foundation", label:"Rhetorical Synthesis", desc:"Use a student's notes to meet a specific goal", icon:"📝", tests:[{label:"Test 1", count:20, href:"practice/eng-expr-rs_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-expr-rs_test2.html"}]},
+    {level:"foundation", label:"Transitions", desc:"Pick the logical connector between ideas", icon:"➡️", tests:[{label:"Test 1", count:20, href:"practice/eng-expr-tr_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-expr-tr_test2.html"}]},
+    {level:"prep", label:"Rhetorical Synthesis", icon:"📝", tests:[{label:"Test 1", count:20, href:"practice/eng-prep-expr-rs_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-prep-expr-rs_test2.html"}]},
+    {level:"prep", label:"Transitions", icon:"➡️", tests:[{label:"Test 1", count:20, href:"practice/eng-prep-expr-tr_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-prep-expr-tr_test2.html"}]}
   ],
     "info-ideas": [
-    {label:"Full Mixed Tests", icon:"🧪", tests:[{label:"Full Test 1 (Mixed)", count:0, href:"practice/eng-info-full_test_1.html"}, {label:"Full Test 2 (Mixed)", count:0, href:"practice/eng-info-full_test_2.html"}]},
-    {label:"Central Ideas and Details", desc:"Main idea and key supporting details", icon:"🎯", tests:[{label:"Test 1", count:20, href:"practice/eng-info-central_ideas_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-info-central_ideas_test2.html"}]},
-    {label:"Inferences", desc:"Complete the text with the most logical conclusion", icon:"🧩", tests:[{label:"Test 1", count:20, href:"practice/eng-info-inferences_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-info-inferences_test2.html"}]},
-    {label:"Command of Evidence", icon:"📊", desc:"Textual and quantitative (tables & graphs)", tests:[{label:"Test 1", count:20, href:"practice/eng-info-coe_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-info-coe_test2.html"}]},
-    {label:"Command of Evidence (Textual)", icon:"📜", tests:[{label:"Test 1", count:0, href:"practice/eng-info-coe_textual_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-info-coe_textual_test2.html"}]},
-    {label:"Command of Evidence (Quantitative)", icon:"📊", tests:[{label:"Test 1", count:0, href:"practice/eng-info-coe_quant_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-info-coe_quant_test2.html"}]},
-    {label:"Paradox / Discrepancy", icon:"⚖️", tests:[{label:"Test 1", count:0, href:"practice/eng-info-paradox_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-info-paradox_test2.html"}]}
+    {level:"foundation", label:"Central Ideas and Details", desc:"Main idea and key supporting details", icon:"🎯", tests:[{label:"Test 1", count:20, href:"practice/eng-info-central_ideas_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-info-central_ideas_test2.html"}]},
+    {level:"foundation", label:"Inferences", desc:"Complete the text with the most logical conclusion", icon:"🧩", tests:[{label:"Test 1", count:20, href:"practice/eng-info-inferences_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-info-inferences_test2.html"}]},
+    {level:"foundation", label:"Command of Evidence", desc:"Textual and quantitative (tables & graphs)", icon:"📊", tests:[{label:"Test 1", count:20, href:"practice/eng-info-coe_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-info-coe_test2.html"}]},
+    {level:"prep", label:"Full Mixed Tests", desc:"All Information and Ideas skills together", icon:"🧪", tests:[{label:"Full Test 1", count:18, href:"practice/eng-prep-info-full_test_1.html"}, {label:"Full Test 2", count:20, href:"practice/eng-prep-info-full_test_2.html"}]},
+    {level:"prep", label:"Central Ideas and Details", icon:"🎯", tests:[{label:"Test 1", count:10, href:"practice/eng-prep-info-central_ideas_test1.html"}, {label:"Test 2", count:10, href:"practice/eng-prep-info-central_ideas_test2.html"}]},
+    {level:"prep", label:"Inferences", icon:"🧩", tests:[{label:"Test 1", count:10, href:"practice/eng-prep-info-inferences_test1.html"}, {label:"Test 2", count:10, href:"practice/eng-prep-info-inferences_test2.html"}]},
+    {level:"prep", label:"Command of Evidence (Textual)", icon:"📜", tests:[{label:"Test 1", count:10, href:"practice/eng-prep-info-coe_textual_test1.html"}, {label:"Test 2", count:10, href:"practice/eng-prep-info-coe_textual_test2.html"}]},
+    {level:"prep", label:"Command of Evidence (Quantitative)", desc:"Tables and graphs", icon:"📊", tests:[{label:"Test 1", count:8, href:"practice/eng-prep-info-coe_quant_test1.html"}, {label:"Test 2", count:9, href:"practice/eng-prep-info-coe_quant_test2.html"}]},
+    {level:"prep", label:"Paradox / Discrepancy", desc:"Resolve an apparent contradiction (CLC pattern)", icon:"⚖️", tests:[{label:"Test 1", count:20, href:"practice/eng-prep-info-paradox_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-prep-info-paradox_test2.html"}]}
   ]
   };
 
+
   var ENGLISH_PRACTICE_DOMAINS = [
-    {key:"conventions", label:"Standard English Conventions", icon:"✔️", desc:"Boundaries · Word Forms · Agreement · Modifiers — 8 tests, 200 questions"},
-    {key:"expression", label:"Expression of Ideas", icon:"💬", desc:"Rhetorical Synthesis · Transitions — 4 tests, 80 questions"},
-    {key:"info-ideas", label:"Information and Ideas", icon:"🔎", desc:"Central Ideas · Inferences · Command of Evidence — 6 tests, 120 questions"},
-    {key:"craft-structure", label:"Craft and Structure", icon:"🏛️", desc:"Words in Context · Text Structure · Cross-Text — 6 tests, 120 questions"}
+    {key:"conventions", label:"Standard English Conventions", icon:"✔️", desc:"Foundation 8 tests · DSAT Prep 38 tests — 620 questions"},
+    {key:"expression", label:"Expression of Ideas", icon:"💬", desc:"Foundation 4 tests · DSAT Prep 4 tests — 160 questions"},
+    {key:"info-ideas", label:"Information and Ideas", icon:"🔎", desc:"Foundation 6 tests · DSAT Prep 12 tests — 275 questions"},
+    {key:"craft-structure", label:"Craft and Structure", icon:"🏛️", desc:"Foundation 6 tests · DSAT Prep 6 tests — 240 questions"}
   ];
 
   var ENGLISH_SUBCATS = [
     {key:"theory", label:"Theory", icon:"📚", desc:"Conventions · Craft & Structure (PDF)"},
     {key:"vocabulary", label:"Vocabulary", icon:"🔤", desc:"Coming soon"},
-    {key:"practice", label:"Practice", icon:"✏️", desc:"4 domains · 24 tests · 520 questions"},
+    {key:"practice", label:"Practice", icon:"✏️", desc:"Foundation + DSAT Prep · 84 tests · 1,295 questions"},
     {key:"extra", label:"Extra Practice", icon:"➕", desc:"Coming soon"},
     {key:"revision", label:"Revision English", icon:"🔁", desc:"Coming soon"},
     {key:"fulltests", label:"Full Tests", icon:"🎯", desc:"Coming soon"}
@@ -806,7 +814,22 @@ function screenSignin(){
     return html;
   }
 
+  var LEVEL_INFO = {
+    foundation: {title:"Foundation tests", note:"Core practice for each skill — start here."},
+    prep: {title:"DSAT Prep tests", note:"Harder, official-style questions for students ready for the full Digital SAT."}
+  };
   function engChapterCards(list){
+    var out = "";
+    ["foundation","prep"].forEach(function(lv){
+      var part = engChapterCardsFlat(list.filter(function(ch){ return (ch.level||"foundation")===lv; }));
+      if(!part) return;
+      var both = list.some(function(ch){ return (ch.level||"foundation")!==lv && ch.tests.some(function(t){return isReady(t.href);}); });
+      if(both) out += "<p class=\"eyebrow\" style=\"margin:16px 0 2px; color:var(--english);\">"+(lv==="prep"?"🎯 ":"🌱 ")+LEVEL_INFO[lv].title+"</p><p style=\"font-size:12.5px; color:var(--muted); margin:0 0 8px;\">"+LEVEL_INFO[lv].note+"</p>";
+      out += part;
+    });
+    return out;
+  }
+  function engChapterCardsFlat(list){
     var h = "";
     list.forEach(function(ch){
       var ready = ch.tests.filter(function(t){ return isReady(t.href); });
