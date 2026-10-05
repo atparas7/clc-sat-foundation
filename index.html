@@ -201,7 +201,7 @@
   /* ---------------- CONTENT (empty — ready to fill in) ---------------- */
 
   var SECTIONS = {
-    english: { title:"English", icon:"📖", color:"english", tests:[], blurb:"Theory · 84 practice tests" },
+    english: { title:"English", icon:"📖", color:"english", tests:[], blurb:"Theory · Practice · Extra Practice" },
     math: { title:"Math", icon:"📐", color:"practice", tests:[], blurb:"Theory · Algebra tests · Workbook · Desmos" },
     full: { title:"Full Test", icon:"🎯", color:"full", tests:[{title:"Full Practice Test 1", desc:"Coming soon", href:"full-test-1.html"}], blurb:"Coming soon" }
   };
@@ -261,6 +261,12 @@
     {key:"vocab-vol1", label:"SAT VOCABULARY VOL1", icon:"🔤", href:"vocabulary/sat-vocabulary-vol1.html"}
   ];
 
+  var ENGLISH_EXTRA_DOMAINS = [
+    {key:"conventions", label:"Standard English Conventions", icon:"✔️", desc:"Boundaries · Grammar — 38 tests, 420 questions"},
+    {key:"expression", label:"Expression of Ideas", icon:"💬", desc:"Rhetorical Synthesis · Transitions — 4 tests, 80 questions"},
+    {key:"info-ideas", label:"Information and Ideas", icon:"🔎", desc:"Central Ideas · Inferences · Evidence · Paradox — 12 tests, 155 questions"},
+    {key:"craft-structure", label:"Craft and Structure", icon:"🏛️", desc:"Words in Context · Text Structure · Cross-Text — 6 tests, 120 questions"}
+  ];
   var ENGLISH_EXTRA_TESTS = [
     {key:"info-ideas", label:"Information & Ideas", icon:"🔎", count:0, href:"practice/english-information-ideas.html"},
     {key:"conventions", label:"Standard English Conventions", icon:"✔️", count:0, href:"practice/english-standard-conventions.html"},
@@ -445,17 +451,17 @@
 
 
   var ENGLISH_PRACTICE_DOMAINS = [
-    {key:"conventions", label:"Standard English Conventions", icon:"✔️", desc:"Foundation 8 tests · DSAT Prep 38 tests — 620 questions"},
-    {key:"expression", label:"Expression of Ideas", icon:"💬", desc:"Foundation 4 tests · DSAT Prep 4 tests — 160 questions"},
-    {key:"info-ideas", label:"Information and Ideas", icon:"🔎", desc:"Foundation 6 tests · DSAT Prep 12 tests — 275 questions"},
-    {key:"craft-structure", label:"Craft and Structure", icon:"🏛️", desc:"Foundation 6 tests · DSAT Prep 6 tests — 240 questions"}
+    {key:"conventions", label:"Standard English Conventions", icon:"✔️", desc:"Boundaries · Word Forms · Agreement · Modifiers — 8 tests, 200 questions"},
+    {key:"expression", label:"Expression of Ideas", icon:"💬", desc:"Rhetorical Synthesis · Transitions — 4 tests, 80 questions"},
+    {key:"info-ideas", label:"Information and Ideas", icon:"🔎", desc:"Central Ideas · Inferences · Command of Evidence — 6 tests, 120 questions"},
+    {key:"craft-structure", label:"Craft and Structure", icon:"🏛️", desc:"Words in Context · Text Structure · Cross-Text — 6 tests, 120 questions"}
   ];
 
   var ENGLISH_SUBCATS = [
     {key:"theory", label:"Theory", icon:"📚", desc:"Conventions · Craft & Structure (PDF)"},
     {key:"vocabulary", label:"Vocabulary", icon:"🔤", desc:"Coming soon"},
-    {key:"practice", label:"Practice", icon:"✏️", desc:"Foundation + DSAT Prep · 84 tests · 1,295 questions"},
-    {key:"extra", label:"Extra Practice", icon:"➕", desc:"Coming soon"},
+    {key:"practice", label:"Practice", icon:"✏️", desc:"Foundation · 24 tests · 520 questions"},
+    {key:"extra", label:"Extra Practice", icon:"➕", desc:"DSAT Prep · 60 tests · 775 questions"},
     {key:"revision", label:"Revision English", icon:"🔁", desc:"Coming soon"},
     {key:"fulltests", label:"Full Tests", icon:"🎯", desc:"Coming soon"}
   ];
@@ -562,6 +568,7 @@
       case "section": return SECTIONS[t.params.key].title;
       case "englishsub": return ENGLISH_SUBCATS.filter(function(x){return x.key===t.params.key;})[0].label;
       case "englishPractice": return ENGLISH_PRACTICE_DOMAINS.filter(function(x){return x.key===t.params.key;})[0].label;
+      case "englishExtra": return ENGLISH_PRACTICE_DOMAINS.filter(function(x){return x.key===t.params.key;})[0].label + " · DSAT Prep";
       case "mathsub": return MATH_SUBCATS.filter(function(x){return x.key===t.params.key;})[0].label;
       case "mathPractice": return MATH_PRACTICE_DOMAINS.filter(function(x){return x.key===t.params.key;})[0].label;
       case "mathTheoryTopic": return t.params.topic.label;
@@ -586,6 +593,7 @@
       case "section": return screenSection(t.params.key);
       case "englishsub": return screenEnglishSub(t.params.key);
       case "englishPractice": return screenEnglishPractice(t.params.key);
+      case "englishExtra": return screenEnglishPractice(t.params.key, "prep");
       case "mathsub": return screenMathSub(t.params.key);
       case "mathPractice": return screenMathPractice(t.params.key);
       case "mathTheoryTopic": return screenMathTheoryTopic(t.params.topic);
@@ -845,13 +853,16 @@ function screenSignin(){
     });
     return h;
   }
-  function screenEnglishPractice(key){
+  function screenEnglishPractice(key, level){
+    level = level || "foundation";
+    var byLevel = function(list){ return list.filter(function(ch){ return (ch.level||"foundation")===level; }); };
     var d = ENGLISH_PRACTICE_DOMAINS.filter(function(x){return x.key===key;})[0];
     if(key==="conventions"){
       var html = "<div class=\"card\" style=\"position:relative;\">"+
         "<div class=\"subject-strip\" style=\"background:var(--english);\"></div>"+
         "<p class=\"eyebrow\" style=\"color:var(--english);\">📖 The CLC Method</p>"+
         "<p style=\"font-size:14px; line-height:1.6; margin:0;\">Every question breaks down the same way: the <b>Rule</b> being tested, a <b>Tip</b> for spotting it fast, <b>why</b> the right answer works, the <b>Trap</b> most students fall for, and a full <b>POE</b> walkthrough of every wrong choice.</p>"+
+        (level==="prep"?"<p style=\"font-size:14px; line-height:1.6; margin:10px 0 0;\"><b>DSAT Prep level</b> — harder, official-style questions, a skill at a time and in full mixed tests.</p>":"")+
         "</div>";
       var topicTile = function(topic){
         var qs = topicQuestions(topic.domain);
@@ -860,9 +871,9 @@ function screenSignin(){
           "<div class=\"body\"><strong>"+escapeHtml(topic.label)+"</strong><span>"+(qs.length?qs.length+" questions":"Coming soon")+"</span></div>"+
           "<div class=\"chev\">→</div></button>";
       };
-      var chapterCards = function(list){ html += engChapterCards(list); };
+      var chapterCards = function(list){ html += engChapterCards(byLevel(list)); };
       var cbSets = function(sk, label){
-        if(!isReady("practice/eng-cb-"+sk+"-quiz12.html")) return;
+        if(level!=="foundation" || !isReady("practice/eng-cb-"+sk+"-quiz12.html")) return;
         var ks=[["quiz12","Class Quiz",12],["review15","Review",15],["hw30","Homework",30]];
         html += "<p class=\"eyebrow\" style=\"margin-top:14px;\">Official College Board questions</p><div class=\"card\"><p class=\"eyebrow\" style=\"margin-bottom:10px;\">🏛️ "+label+" · College Board sets</p><div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
         ks.forEach(function(k){ html += "<a class=\"btn ghost\" href=\"practice/eng-cb-"+sk+"-"+k[0]+".html\" style=\"text-decoration:none; flex:1; min-width:130px;\">"+k[1]+" <span style=\"opacity:.65;\">("+k[2]+"q)</span></a>"; });
@@ -882,7 +893,7 @@ function screenSignin(){
       html += "<p class=\"eyebrow\" style=\"margin-top:14px;\">Skill tests</p>";
       chapterCards(ENGLISH_GRAMMAR_CHAPTERS);
       cbSets("form","Form, Structure &amp; Sense");
-      if(isReady("practice/eng-cb-conventions-bank.html")){
+      if(level==="foundation" && isReady("practice/eng-cb-conventions-bank.html")){
         html += "<h3 class=\"display\" style=\"font-size:20px; margin:28px 0 4px; color:var(--english);\">🏛️ College Board Question Bank</h3>"+
           "<a class=\"btn\" href=\"practice/eng-cb-conventions-bank.html\" style=\"text-decoration:none;\">Open the question bank</a>";
       }
@@ -893,12 +904,12 @@ function screenSignin(){
       var htmlD = "<div class=\"card\" style=\"position:relative;\">"+
         "<div class=\"subject-strip\" style=\"background:var(--english);\"></div>"+
         "<p class=\"eyebrow\" style=\"color:var(--english);\">"+d.icon+" "+escapeHtml(d.label)+"</p>"+
-        "<p style=\"font-size:14px; color:var(--muted); margin:0;\">Timed practice tests by skill — choose a timing (standard, +25%, +50% or untimed), then get your score (correct, incorrect, omitted) and the full CLC review of every question: Rule, Tip, Trap and Process of Elimination. Each test opens in a new tab.</p>"+
+        "<p style=\"font-size:14px; color:var(--muted); margin:0;\">"+(level==="prep"?"<b>DSAT Prep level</b> — harder, official-style questions. ":"")+"Timed practice tests by skill — choose a timing (standard, +25%, +50% or untimed), then get your score (correct, incorrect, omitted) and the full CLC review of every question: Rule, Tip, Trap and Process of Elimination. Each test opens in a new tab.</p>"+
         "</div>";
-      var body = engChapterCards(chs);
+      var body = engChapterCards(byLevel(chs));
       htmlD += body || "<div class=\"card\"><div class=\"empty\"><div class=\"big\">📂</div>Practice tests will appear here soon.</div></div>";
       var CB = ENGLISH_CB_SETS[key];
-      if(CB && isReady(CB.bank)){
+      if(CB && level==="foundation" && isReady(CB.bank)){
         htmlD += "<h3 class=\"display\" style=\"font-size:20px; margin:28px 0 4px; color:var(--english);\">🏛️ Official College Board questions</h3>"+
           "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 10px;\"><b>Coming soon.</b> Real College Board SAT questions with the official explanation for every question.</p>";
         CB.skills.forEach(function(sk){
@@ -991,15 +1002,15 @@ function screenSignin(){
     if(key==="extra"){
       var html3 = "<div class=\"card\" style=\"position:relative;\">"+
         "<div class=\"subject-strip\" style=\"background:var(--english);\"></div>"+
-        "<p class=\"eyebrow\" style=\"color:var(--english);\">"+sc.icon+" Extra Practice</p>"+
-        "<p style=\"font-size:14px; color:var(--muted); margin:0;\">Content coming soon.</p>"+
-        "</div><div class=\"section-grid\">";
-      ENGLISH_EXTRA_TESTS.forEach(function(t){
-        html3 += "<a class=\"tile-col\" href=\""+t.href+"\" style=\"text-decoration:none; color:inherit;\">"+
-          "<div class=\"icon\" style=\"background:var(--english-soft); color:var(--english);\">"+t.icon+"</div>"+
-          "<strong>"+escapeHtml(t.label)+"</strong>"+
-          "<span>Coming soon</span>"+
-          "</a>";
+        "<p class=\"eyebrow\" style=\"color:var(--english);\">"+sc.icon+" Extra Practice · DSAT Prep level</p>"+
+        "<p style=\"font-size:14px; color:var(--muted); margin:0;\">Harder, official-style tests for students who have finished the Foundation practice — by skill and in full mixed tests, with the full CLC review of every question. Each test opens in a new tab.</p>"+
+        "</div><div class=\"section-grid grid-4\">";
+      ENGLISH_EXTRA_DOMAINS.forEach(function(d){
+        html3 += "<button class=\"tile-col\" onclick=\"go('englishExtra',{key:'"+d.key+"'})\">"+
+          "<div class=\"icon\" style=\"background:var(--english-soft); color:var(--english);\">"+d.icon+"</div>"+
+          "<strong>"+escapeHtml(d.label)+"</strong>"+
+          "<span>"+escapeHtml(d.desc)+"</span>"+
+          "</button>";
       });
       html3 += "</div>";
       return html3;
