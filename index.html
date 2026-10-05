@@ -195,13 +195,13 @@
 (function(){
   "use strict";
 
-  /*READY-START*/var READY = ["desmos-guide.pdf", "desmos-made-simple.pdf", "media/desmos-lesson-1.pdf", "media/desmos-lesson-2.pdf", "practice/algebra-inequalities-class.html", "practice/algebra-inequalities-homework15.html", "practice/algebra-inequalities-homework30.html", "practice/algebra-lineq1var-class.html", "practice/algebra-lineq1var-homework15.html", "practice/algebra-lineq1var-homework30.html", "practice/algebra-lineq2var-class.html", "practice/algebra-lineq2var-homework15.html", "practice/algebra-lineq2var-homework30.html", "practice/algebra-linfunctions-class.html", "practice/algebra-linfunctions-homework15.html", "practice/algebra-linfunctions-homework30.html", "practice/algebra-systems-class.html", "practice/algebra-systems-homework15.html", "practice/algebra-systems-homework30.html", "practice/foundation-workbook-student-edition.pdf", "theory/advanced-math-presentation.pdf", "theory/algebra-companion.pdf", "theory/algebra-presentation.pdf", "theory/data-analysis-companion.pdf", "theory/data-analysis-presentation.pdf", "theory/english-conventions-theory.pdf", "theory/english-craft-structure-theory.pdf", "theory/foundation-course-companion.pdf", "theory/foundation-course-presentation.pdf", "theory/geometry-trig-companion.pdf", "theory/geometry-trig-presentation.pdf"];/*READY-END*/
+  /*READY-START*/var READY = ["desmos-guide.pdf", "desmos-made-simple.pdf", "media/desmos-lesson-1.pdf", "media/desmos-lesson-2.pdf", "practice/algebra-inequalities-class.html", "practice/algebra-inequalities-homework15.html", "practice/algebra-inequalities-homework30.html", "practice/algebra-lineq1var-class.html", "practice/algebra-lineq1var-homework15.html", "practice/algebra-lineq1var-homework30.html", "practice/algebra-lineq2var-class.html", "practice/algebra-lineq2var-homework15.html", "practice/algebra-lineq2var-homework30.html", "practice/algebra-linfunctions-class.html", "practice/algebra-linfunctions-homework15.html", "practice/algebra-linfunctions-homework30.html", "practice/algebra-systems-class.html", "practice/algebra-systems-homework15.html", "practice/algebra-systems-homework30.html", "practice/eng-conv-agreement_test1.html", "practice/eng-conv-agreement_test2.html", "practice/eng-conv-boundaries_test1.html", "practice/eng-conv-boundaries_test2.html", "practice/eng-conv-modifiers_test1.html", "practice/eng-conv-modifiers_test2.html", "practice/eng-conv-wordforms_test1.html", "practice/eng-conv-wordforms_test2.html", "practice/eng-craft-ctx_test1.html", "practice/eng-craft-ctx_test2.html", "practice/eng-craft-tsp_test1.html", "practice/eng-craft-tsp_test2.html", "practice/eng-craft-wic_test1.html", "practice/eng-craft-wic_test2.html", "practice/eng-expr-rs_test1.html", "practice/eng-expr-rs_test2.html", "practice/eng-expr-tr_test1.html", "practice/eng-expr-tr_test2.html", "practice/eng-info-central_ideas_test1.html", "practice/eng-info-central_ideas_test2.html", "practice/eng-info-coe_test1.html", "practice/eng-info-coe_test2.html", "practice/eng-info-inferences_test1.html", "practice/eng-info-inferences_test2.html", "practice/foundation-workbook-student-edition.pdf", "theory/advanced-math-presentation.pdf", "theory/algebra-companion.pdf", "theory/algebra-presentation.pdf", "theory/data-analysis-companion.pdf", "theory/data-analysis-presentation.pdf", "theory/english-conventions-theory.pdf", "theory/english-craft-structure-theory.pdf", "theory/foundation-course-companion.pdf", "theory/foundation-course-presentation.pdf", "theory/geometry-trig-companion.pdf", "theory/geometry-trig-presentation.pdf"];/*READY-END*/
   function isReady(h){ return !!h && (/^https?:/.test(h) || READY.indexOf(h.split("?")[0]) >= 0); }
 
   /* ---------------- CONTENT (empty — ready to fill in) ---------------- */
 
   var SECTIONS = {
-    english: { title:"English", icon:"📖", color:"english", tests:[], blurb:"Theory: Conventions · Craft & Structure" },
+    english: { title:"English", icon:"📖", color:"english", tests:[], blurb:"Theory · 24 practice tests" },
     math: { title:"Math", icon:"📐", color:"practice", tests:[], blurb:"Theory · Algebra tests · Workbook · Desmos" },
     full: { title:"Full Test", icon:"🎯", color:"full", tests:[{title:"Full Practice Test 1", desc:"Coming soon", href:"full-test-1.html"}], blurb:"Coming soon" }
   };
@@ -277,6 +277,9 @@
   ];
 
   var ENGLISH_GRAMMAR_CHAPTERS = [
+    {"key":"word-forms","label":"Word Forms & Tenses","icon":"⏱️","desc":"Parts of Speech · Adjectives & Adverbs · Verbs & Tenses","tests":[{"label":"Test 1","count":30,"href":"practice/eng-conv-wordforms_test1.html"},{"label":"Test 2","count":30,"href":"practice/eng-conv-wordforms_test2.html"}]},
+    {"key":"agreement","label":"Agreement & Reference","icon":"🤝","desc":"Subject-Verb Agreement · Pronouns · Nouns & Apostrophes","tests":[{"label":"Test 1","count":30,"href":"practice/eng-conv-agreement_test1.html"},{"label":"Test 2","count":30,"href":"practice/eng-conv-agreement_test2.html"}]},
+    {"key":"modifiers-parallel","label":"Modifiers & Parallel Structure","icon":"🔧","desc":"Modifiers · Parallel Structure","tests":[{"label":"Test 1","count":20,"href":"practice/eng-conv-modifiers_test1.html"},{"label":"Test 2","count":20,"href":"practice/eng-conv-modifiers_test2.html"}]},
     {"key":"full-mixed-tests","label":"Full Mixed Tests","icon":"🧪","tests":[{"label":"Full Test 1 (Mixed)","count":0,"href":"practice/grammar-full_test_1.html"},{"label":"Full Test 2 (Mixed)","count":0,"href":"practice/grammar-full_test_2.html"}]},
     {"key":"parts-of-speech","label":"Parts of Speech","icon":"🔤","tests":[{"label":"Test 1","count":0,"href":"practice/grammar-parts_of_speech_test1.html"},{"label":"Test 2","count":0,"href":"practice/grammar-parts_of_speech_test2.html"}]},
     {"key":"verbs-and-tenses","label":"Verbs & Tenses","icon":"⏱️","tests":[{"label":"Test 1","count":0,"href":"practice/grammar-verbs_and_tenses_test1.html"},{"label":"Test 2","count":0,"href":"practice/grammar-verbs_and_tenses_test2.html"}]},
@@ -288,6 +291,7 @@
   ];
 
   var ENGLISH_BOUNDARIES_CHAPTERS = [
+    {"key":"boundaries","label":"Boundaries","icon":"✂️","desc":"Comma · Semicolon · Colon · Dash · Run-ons & Comma Splices · Fragments","tests":[{"label":"Test 1","count":20,"href":"practice/eng-conv-boundaries_test1.html"},{"label":"Test 2","count":20,"href":"practice/eng-conv-boundaries_test2.html"}]},
     {"key":"full-mixed-tests","label":"Full Mixed Tests","icon":"🧪","tests":[{"label":"Full Test 1 (Mixed)","count":0,"href":"practice/boundaries-full_test_1.html"},{"label":"Full Test 2 (Mixed)","count":0,"href":"practice/boundaries-full_test_2.html"}]},
     {"key":"the-comma","label":"The Comma","icon":",","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-comma_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-comma_test2.html"}]},
     {"key":"the-semicolon","label":"The Semicolon","icon":";","tests":[{"label":"Test 1","count":0,"href":"practice/boundaries-semicolon_test1.html"},{"label":"Test 2","count":0,"href":"practice/boundaries-semicolon_test2.html"}]},
@@ -413,18 +417,19 @@
 
   var ENGLISH_DOMAIN_CHAPTERS = {
     "craft-structure": [
-    {label:"Words in Context", icon:"🔤", tests:[{label:"Test 1", count:0, href:"practice/eng-craft-wic_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-craft-wic_test2.html"}]},
-    {label:"Text Structure and Purpose", icon:"🏗️", tests:[{label:"Test 1", count:0, href:"practice/eng-craft-tsp_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-craft-tsp_test2.html"}]},
-    {label:"Cross-Text Connections", icon:"🔗", tests:[{label:"Test 1", count:0, href:"practice/eng-craft-ctx_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-craft-ctx_test2.html"}]}
+    {label:"Words in Context", desc:"Choose the word that fits the meaning in context", icon:"🔤", tests:[{label:"Test 1", count:20, href:"practice/eng-craft-wic_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-craft-wic_test2.html"}]},
+    {label:"Text Structure and Purpose", desc:"What a text or a sentence is doing — function and structure", icon:"🏗️", tests:[{label:"Test 1", count:20, href:"practice/eng-craft-tsp_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-craft-tsp_test2.html"}]},
+    {label:"Cross-Text Connections", desc:"How two texts relate — agree, disagree, respond", icon:"🔗", tests:[{label:"Test 1", count:20, href:"practice/eng-craft-ctx_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-craft-ctx_test2.html"}]}
   ],
     "expression": [
-    {label:"Rhetorical Synthesis", icon:"📝", tests:[{label:"Test 1", count:0, href:"practice/eng-expr-rs_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-expr-rs_test2.html"}]},
-    {label:"Transitions", icon:"➡️", tests:[{label:"Test 1", count:0, href:"practice/eng-expr-tr_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-expr-tr_test2.html"}]}
+    {label:"Rhetorical Synthesis", desc:"Use a student's notes to meet a specific goal", icon:"📝", tests:[{label:"Test 1", count:20, href:"practice/eng-expr-rs_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-expr-rs_test2.html"}]},
+    {label:"Transitions", desc:"Pick the logical connector between ideas", icon:"➡️", tests:[{label:"Test 1", count:20, href:"practice/eng-expr-tr_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-expr-tr_test2.html"}]}
   ],
     "info-ideas": [
     {label:"Full Mixed Tests", icon:"🧪", tests:[{label:"Full Test 1 (Mixed)", count:0, href:"practice/eng-info-full_test_1.html"}, {label:"Full Test 2 (Mixed)", count:0, href:"practice/eng-info-full_test_2.html"}]},
-    {label:"Central Ideas and Details", icon:"🎯", tests:[{label:"Test 1", count:0, href:"practice/eng-info-central_ideas_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-info-central_ideas_test2.html"}]},
-    {label:"Inferences", icon:"🧩", tests:[{label:"Test 1", count:0, href:"practice/eng-info-inferences_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-info-inferences_test2.html"}]},
+    {label:"Central Ideas and Details", desc:"Main idea and key supporting details", icon:"🎯", tests:[{label:"Test 1", count:20, href:"practice/eng-info-central_ideas_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-info-central_ideas_test2.html"}]},
+    {label:"Inferences", desc:"Complete the text with the most logical conclusion", icon:"🧩", tests:[{label:"Test 1", count:20, href:"practice/eng-info-inferences_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-info-inferences_test2.html"}]},
+    {label:"Command of Evidence", icon:"📊", desc:"Textual and quantitative (tables & graphs)", tests:[{label:"Test 1", count:20, href:"practice/eng-info-coe_test1.html"}, {label:"Test 2", count:20, href:"practice/eng-info-coe_test2.html"}]},
     {label:"Command of Evidence (Textual)", icon:"📜", tests:[{label:"Test 1", count:0, href:"practice/eng-info-coe_textual_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-info-coe_textual_test2.html"}]},
     {label:"Command of Evidence (Quantitative)", icon:"📊", tests:[{label:"Test 1", count:0, href:"practice/eng-info-coe_quant_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-info-coe_quant_test2.html"}]},
     {label:"Paradox / Discrepancy", icon:"⚖️", tests:[{label:"Test 1", count:0, href:"practice/eng-info-paradox_test1.html"}, {label:"Test 2", count:0, href:"practice/eng-info-paradox_test2.html"}]}
@@ -432,16 +437,16 @@
   };
 
   var ENGLISH_PRACTICE_DOMAINS = [
-    {key:"conventions", label:"Standard English Conventions", icon:"✔️", desc:"Coming soon"},
-    {key:"expression", label:"Expression of Ideas", icon:"💬", desc:"Coming soon"},
-    {key:"info-ideas", label:"Information and Ideas", icon:"🔎", desc:"Coming soon"},
-    {key:"craft-structure", label:"Craft and Structure", icon:"🏛️", desc:"Coming soon"}
+    {key:"conventions", label:"Standard English Conventions", icon:"✔️", desc:"Boundaries · Word Forms · Agreement · Modifiers — 8 tests, 200 questions"},
+    {key:"expression", label:"Expression of Ideas", icon:"💬", desc:"Rhetorical Synthesis · Transitions — 4 tests, 80 questions"},
+    {key:"info-ideas", label:"Information and Ideas", icon:"🔎", desc:"Central Ideas · Inferences · Command of Evidence — 6 tests, 120 questions"},
+    {key:"craft-structure", label:"Craft and Structure", icon:"🏛️", desc:"Words in Context · Text Structure · Cross-Text — 6 tests, 120 questions"}
   ];
 
   var ENGLISH_SUBCATS = [
     {key:"theory", label:"Theory", icon:"📚", desc:"Conventions · Craft & Structure (PDF)"},
     {key:"vocabulary", label:"Vocabulary", icon:"🔤", desc:"Coming soon"},
-    {key:"practice", label:"Practice", icon:"✏️", desc:"Coming soon"},
+    {key:"practice", label:"Practice", icon:"✏️", desc:"4 domains · 24 tests · 520 questions"},
     {key:"extra", label:"Extra Practice", icon:"➕", desc:"Coming soon"},
     {key:"revision", label:"Revision English", icon:"🔁", desc:"Coming soon"},
     {key:"fulltests", label:"Full Tests", icon:"🎯", desc:"Coming soon"}
@@ -801,6 +806,22 @@ function screenSignin(){
     return html;
   }
 
+  function engChapterCards(list){
+    var h = "";
+    list.forEach(function(ch){
+      var ready = ch.tests.filter(function(t){ return isReady(t.href); });
+      if(!ready.length) return;
+      var q = ready.reduce(function(a,t){ return a+(t.count||0); },0);
+      h += "<div class=\"card\"><p class=\"eyebrow\" style=\"margin-bottom:4px;\">"+ch.icon+" "+escapeHtml(ch.label)+"</p>"+
+        "<p style=\"font-size:13px; color:var(--muted); margin:0 0 10px;\">"+(ch.desc ? escapeHtml(ch.desc)+" · " : "")+ready.length+" test"+(ready.length>1?"s":"")+" · "+q+" questions</p>"+
+        "<div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
+      ready.forEach(function(t){
+        h += "<a class=\"btn ghost\" href=\""+t.href+"\" style=\"text-decoration:none; flex:1; min-width:130px;\">"+escapeHtml(t.label)+(t.count?" <span style=\"opacity:.65;\">("+t.count+"q)</span>":"")+"</a>";
+      });
+      h += "</div></div>";
+    });
+    return h;
+  }
   function screenEnglishPractice(key){
     var d = ENGLISH_PRACTICE_DOMAINS.filter(function(x){return x.key===key;})[0];
     if(key==="conventions"){
@@ -816,39 +837,32 @@ function screenSignin(){
           "<div class=\"body\"><strong>"+escapeHtml(topic.label)+"</strong><span>"+(qs.length?qs.length+" questions":"Coming soon")+"</span></div>"+
           "<div class=\"chev\">→</div></button>";
       };
-      var chapterCards = function(list){
-        list.forEach(function(ch){
-          html += "<div class=\"card\"><p class=\"eyebrow\" style=\"margin-bottom:10px;\">"+ch.icon+" "+escapeHtml(ch.label)+"</p>"+
-            "<div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
-          ch.tests.forEach(function(t){
-            html += "<a class=\"btn ghost\" href=\""+t.href+"\" style=\"text-decoration:none; flex:1; min-width:130px;\">"+escapeHtml(t.label)+"</a>";
-          });
-          html += "</div></div>";
-        });
-      };
+      var chapterCards = function(list){ html += engChapterCards(list); };
       var cbSets = function(sk, label){
+        if(!isReady("practice/eng-cb-"+sk+"-quiz12.html")) return;
         var ks=[["quiz12","Class Quiz",12],["review15","Review",15],["hw30","Homework",30]];
         html += "<p class=\"eyebrow\" style=\"margin-top:14px;\">Official College Board questions</p><div class=\"card\"><p class=\"eyebrow\" style=\"margin-bottom:10px;\">🏛️ "+label+" · College Board sets</p><div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
         ks.forEach(function(k){ html += "<a class=\"btn ghost\" href=\"practice/eng-cb-"+sk+"-"+k[0]+".html\" style=\"text-decoration:none; flex:1; min-width:130px;\">"+k[1]+" <span style=\"opacity:.65;\">("+k[2]+"q)</span></a>"; });
         html += "</div></div>";
       };
       html += "<h3 class=\"display\" style=\"font-size:20px; margin:22px 0 4px; color:var(--english);\">✂️ Boundaries</h3>"+
-        "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 10px;\">Punctuation and sentence boundaries — commas, semicolons, colons, dashes, periods.</p>"+
-        "<p class=\"eyebrow\" style=\"margin-top:6px;\">Worked quiz</p>";
-      topicTile(ENGLISH_TOPICS[0]);
+        "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 10px;\">Punctuation and sentence boundaries — commas, semicolons, colons, dashes, run-ons and fragments.</p>"+
+        "";
+      if(topicQuestions(ENGLISH_TOPICS[0].domain).length) topicTile(ENGLISH_TOPICS[0]);
       html += "<p class=\"eyebrow\" style=\"margin-top:14px;\">Skill tests</p>";
       chapterCards(ENGLISH_BOUNDARIES_CHAPTERS);
       cbSets("boundaries","Boundaries");
       html += "<h3 class=\"display\" style=\"font-size:20px; margin:28px 0 4px; color:var(--english);\">🧩 Form, Structure & Sense</h3>"+
-        "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 10px;\">Grammar — verb tense, agreement, pronouns, modifiers, parallel structure.</p>"+
-        "<p class=\"eyebrow\" style=\"margin-top:6px;\">Worked quiz</p>";
-      topicTile(ENGLISH_TOPICS[1]);
+        "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 10px;\">Grammar — word forms, verb tenses, agreement, pronouns, apostrophes, modifiers and parallel structure.</p>"+
+        "";
+      if(topicQuestions(ENGLISH_TOPICS[1].domain).length) topicTile(ENGLISH_TOPICS[1]);
       html += "<p class=\"eyebrow\" style=\"margin-top:14px;\">Skill tests</p>";
       chapterCards(ENGLISH_GRAMMAR_CHAPTERS);
       cbSets("form","Form, Structure &amp; Sense");
-      html += "<h3 class=\"display\" style=\"font-size:20px; margin:28px 0 4px; color:var(--english);\">🏛️ College Board Question Bank</h3>"+
-        "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 10px;\">Content coming soon.</p>"+
-        "<a class=\"btn\" href=\"practice/eng-cb-conventions-bank.html\" style=\"text-decoration:none;\">Open the question bank</a>";
+      if(isReady("practice/eng-cb-conventions-bank.html")){
+        html += "<h3 class=\"display\" style=\"font-size:20px; margin:28px 0 4px; color:var(--english);\">🏛️ College Board Question Bank</h3>"+
+          "<a class=\"btn\" href=\"practice/eng-cb-conventions-bank.html\" style=\"text-decoration:none;\">Open the question bank</a>";
+      }
       return html;
     }
     var chs = ENGLISH_DOMAIN_CHAPTERS[key];
@@ -856,18 +870,12 @@ function screenSignin(){
       var htmlD = "<div class=\"card\" style=\"position:relative;\">"+
         "<div class=\"subject-strip\" style=\"background:var(--english);\"></div>"+
         "<p class=\"eyebrow\" style=\"color:var(--english);\">"+d.icon+" "+escapeHtml(d.label)+"</p>"+
-        "<p style=\"font-size:14px; color:var(--muted); margin:0;\"><b>Coming soon.</b> Timed practice tests by skill. Every question comes with the full CLC review — Rule, Tip, Trap and Process of Elimination. Each test opens in a new tab as its own complete testing environment.</p>"+
+        "<p style=\"font-size:14px; color:var(--muted); margin:0;\">Timed practice tests by skill — choose a timing (standard, +25%, +50% or untimed), then get your score (correct, incorrect, omitted) and the full CLC review of every question: Rule, Tip, Trap and Process of Elimination. Each test opens in a new tab.</p>"+
         "</div>";
-      chs.forEach(function(ch){
-        htmlD += "<div class=\"card\"><p class=\"eyebrow\" style=\"margin-bottom:10px;\">"+ch.icon+" "+escapeHtml(ch.label)+"</p>"+
-          "<div style=\"display:flex; gap:10px; flex-wrap:wrap;\">";
-        ch.tests.forEach(function(t){
-          htmlD += "<a class=\"btn ghost\" href=\""+t.href+"\" style=\"text-decoration:none; flex:1; min-width:130px;\">"+escapeHtml(t.label)+"</a>";
-        });
-        htmlD += "</div></div>";
-      });
+      var body = engChapterCards(chs);
+      htmlD += body || "<div class=\"card\"><div class=\"empty\"><div class=\"big\">📂</div>Practice tests will appear here soon.</div></div>";
       var CB = ENGLISH_CB_SETS[key];
-      if(CB){
+      if(CB && isReady(CB.bank)){
         htmlD += "<h3 class=\"display\" style=\"font-size:20px; margin:28px 0 4px; color:var(--english);\">🏛️ Official College Board questions</h3>"+
           "<p style=\"font-size:13.5px; color:var(--muted); margin:0 0 10px;\"><b>Coming soon.</b> Real College Board SAT questions with the official explanation for every question.</p>";
         CB.skills.forEach(function(sk){
